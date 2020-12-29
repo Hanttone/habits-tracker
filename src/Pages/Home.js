@@ -1,8 +1,9 @@
 import React from 'react';
 import {Dimensions, SafeAreaView, ImageBackground, View} from 'react-native';
 import Header from '../Components/Header';
+import Button from '../Components/Button';
 
-export default function HomePage() {
+export default function HomePage({navigation}) {
   let screenWidth = Dimensions.get('window').width;
   let screenHeight = Dimensions.get('window').height;
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
         <View>
           <Header text="Habits Tracker" />
         </View>
+        <Button navigation={navigation} />
       </ImageBackground>
     </SafeAreaView>
   );
