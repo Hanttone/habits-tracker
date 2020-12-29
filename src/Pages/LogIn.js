@@ -1,11 +1,11 @@
 import React from 'react';
 import {Dimensions, SafeAreaView, ImageBackground} from 'react-native';
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 
 import Header from '../Components/Header';
 import Button from '../Components/Button';
 
-export default function HomePage({navigation}) {
+export default function LogIn({navigation}) {
   let screenWidth = Dimensions.get('window').width;
   let screenHeight = Dimensions.get('window').height;
 
@@ -19,12 +19,20 @@ export default function HomePage({navigation}) {
         }}>
         <ContentWrapper>
           <Header text="Habits Tracker" />
-          <Button
-            navigation={navigation}
-            page="LogIn"
-            text="Start"
-            margin="30%"
-          />
+          <LoginWrapper>
+            <Button
+              navigation={navigation}
+              page="Habits"
+              text="Log in"
+              margin="3%"
+            />
+            <Button
+              navigation={navigation}
+              page="SignUp"
+              text="Sign up"
+              margin="3%"
+            />
+          </LoginWrapper>
         </ContentWrapper>
       </ImageBackground>
     </SafeAreaView>
@@ -35,4 +43,9 @@ const ContentWrapper = styled.View`
   height: 100%;
   display: flex;
   justify-content: space-between;
+`;
+
+const LoginWrapper = styled.View`
+  height: 10%;
+  margin: 28%;
 `;

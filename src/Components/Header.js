@@ -1,6 +1,5 @@
 import React from 'react';
-import {Text} from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 export default function Header({text}) {
   return <HeaderStyled>{text}</HeaderStyled>;
@@ -12,7 +11,8 @@ const HeaderStyled = styled.Text`
   font-family: Helvetica;
   font-weight: 700;
   text-align: center;
-  margin-top: 15%;
+  margin-top: 20%;
+
   shadow-color: #000;
 shadow-offset: {
 	width: 0,
