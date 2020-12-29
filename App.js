@@ -12,6 +12,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Native from './src/Pages/Native';
 import HabitsPage from './src/Pages/Habits';
+import HomePage from './src/Pages/Home';
 import Btn from './src/Components/Button';
 
 const RootStack = createStackNavigator();
@@ -20,8 +21,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <RootStack.Navigator>
-        <RootStack.Screen name="Habits" component={HabitsPage} />
-        <RootStack.Screen name="Native" component={Native} />
+        <RootStack.Screen name="Home" component={HomePage} />
       </RootStack.Navigator>
     </NavigationContainer>
   );
