@@ -15,6 +15,7 @@ import HabitsPage from './src/Pages/Habits';
 import LogIn from './src/Pages/LogIn';
 import SignUp from './src/Pages/SignUp';
 import HomePage from './src/Pages/Home';
+import NavigationTabs from './src/Components/Navigation'
 
 const RootStack = createStackNavigator();
 

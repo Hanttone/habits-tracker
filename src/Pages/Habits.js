@@ -10,7 +10,7 @@ export default function HabitsPage() {
     <HabitsWrapper>
       <ImageBackground
         style={{
-          height: 100,
+          height: 120,
           width: screenWidth,
           display: 'flex',
           alignItems: 'center',
@@ -43,7 +43,7 @@ opacity: 0.7;
 `;
 
 const ContentWrapper = styled.View`
-  height: 75%;
+  height: 73%;
   width: 100%;
   background-color: white;
   border-bottom-left-radius: 35px;
