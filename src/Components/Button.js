@@ -32,12 +32,12 @@ const ButtonStyled = styled.Text`
   text-align: center;
 
   shadow-color: #000;
-shadow-offset: {
-	width: 0,
-	height: 6,
+  shadow-offset: {
+	width: 0;
+	height: 6;
 };
 shadow-opacity: 0.37;
-shadow-radius: 7.49;
+shadow-radius: 7.49px;
 
 elevation: 12;
 `;

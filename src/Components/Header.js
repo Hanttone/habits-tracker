@@ -20,11 +20,11 @@ const HeaderStyled = styled.Text`
 
   shadow-color: #000;
 shadow-offset: {
-	width: 0,
-	height: 2,
+	width: 0;
+	height: 2;
 };
 shadow-opacity: 0.23;
-shadow-radius: 2.62;
+shadow-radius: 2.62px;
 
 elevation: 4;
 `;

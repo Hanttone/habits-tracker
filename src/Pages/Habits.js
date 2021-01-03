@@ -5,6 +5,7 @@ import Header from '../Components/Header';
 
 export default function HabitsPage() {
   let screenWidth = Dimensions.get('window').width;
+  console.log(screenWidth)
   return (
     <HabitsWrapper>
       <ImageBackground
@@ -15,11 +16,11 @@ export default function HabitsPage() {
           alignItems: 'center',
           justifyContent: 'center',
         }}
-        imageStyle={{opacity: 0.8}}
         source={{
           uri:
             'https://images.unsplash.com/photo-1569230919100-d3fd5e1132f4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1276&q=80',
         }}>
+          <Filter />
         <Header text="Habits Streak" mt="5%" color="#6E473F" />
       </ImageBackground>
       <ContentWrapper></ContentWrapper>
@@ -31,6 +32,14 @@ const HabitsWrapper = styled.View`
   height: 100%;
   width: 100%;
   background-color: #aa7a78;
+`;
+
+const Filter = styled.View`
+height: 100%;
+width: 100%;
+position: absolute;
+background-color: #F2E4E8;
+opacity: 0.7;
 `;
 
 const ContentWrapper = styled.View`
