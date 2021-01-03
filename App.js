@@ -11,18 +11,17 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Native from './src/Pages/Native';
-import HabitsPage from './src/Pages/Habits';
 import LogIn from './src/Pages/LogIn';
 import SignUp from './src/Pages/SignUp';
 import HomePage from './src/Pages/Home';
-import NavigationTabs from './src/Components/Navigation'
+import NavigationTabs from './src/Components/Navigation';
 
 const RootStack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator>
+      <RootStack.Navigator screenOptions={{headerShown: false}}>
         <RootStack.Screen name="Home" component={HomePage} />
         <RootStack.Screen name="LogIn" component={LogIn} />
         <RootStack.Screen name="Navigation" component={NavigationTabs} />
