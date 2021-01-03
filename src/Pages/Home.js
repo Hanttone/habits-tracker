@@ -4,7 +4,6 @@ import styled from 'styled-components/native';
 
 import Header from '../Components/Header';
 import Button from '../Components/Button';
-import NavigationTabs from '../Components/Navigation';
 
 export default function HomePage({navigation}) {
   let screenWidth = Dimensions.get('window').width;
@@ -28,7 +27,6 @@ export default function HomePage({navigation}) {
           />
         </ContentWrapper>
       </ImageBackground>
-      <NavigationTabs />
     </SafeAreaView>
   );
 }

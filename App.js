@@ -25,7 +25,7 @@ const App = () => {
       <RootStack.Navigator>
         <RootStack.Screen name="Home" component={HomePage} />
         <RootStack.Screen name="LogIn" component={LogIn} />
-        <RootStack.Screen name="Habits" component={HabitsPage} />
+        <RootStack.Screen name="Navigation" component={NavigationTabs} />
         <RootStack.Screen name="SignUp" component={SignUp} />
         <RootStack.Screen name="Native" component={Native} />
       </RootStack.Navigator>

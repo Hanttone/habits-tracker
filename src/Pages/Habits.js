@@ -1,6 +1,7 @@
 import React from 'react';
 import {ImageBackground, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
+
 import Header from '../Components/Header';
 
 export default function HabitsPage() {

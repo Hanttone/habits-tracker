@@ -25,7 +25,7 @@ export default function LogIn({navigation}) {
             <Input placeholder="Password" />
             <Button
               navigation={navigation}
-              page="Habits"
+              page="Navigation"
               text="Log in"
               margin="3%"
             />

@@ -1,20 +1,26 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import HomePage from '../Pages/Home';
-import HabitsPage from '../Pages/Habits'
+import HabitsPage from '../Pages/Habits';
+import Statistics from '../Pages/Statistics';
+import HomeIcon from '../Assets/HomeIcon';
 
 const Tab = createBottomTabNavigator();
 
 export default function NavigationTabs() {
-    return (
-        <NavigationContainer>
-        <Tab.Navigator>
-            <Tab.Screen name="Home" component={HomePage} />
-            <Tab.Screen name="Habits" component={HabitsPage} />
-        </Tab.Navigator>
-        </NavigationContainer>
-    )
+  return (
+    <Tab.Navigator
+      initialRouterName="Home"
+      tabBarOptions={{activeTintColor: '#fff'}}>
+      <Tab.Screen
+        name="Home"
+        component={HabitsPage}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: () => <HomeIcon />,
+        }}
+      />
+      <Tab.Screen name="Statistics" component={Statistics} />
+    </Tab.Navigator>
+  );
 }
-

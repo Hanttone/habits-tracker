@@ -25,7 +25,7 @@ export default function SignUp({navigation}) {
             <Input />
             <Button
               navigation={navigation}
-              page="Habits"
+              page="Navigation"
               text="Sign up"
               margin="3%"
             />
