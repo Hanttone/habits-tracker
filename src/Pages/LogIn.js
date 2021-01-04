@@ -21,8 +21,8 @@ export default function LogIn({navigation}) {
         <ContentWrapper>
           <Header text="Habits Tracker" mt="20%" color="white" />
           <LoginWrapper>
-            <Input placeholder="User name" />
-            <Input placeholder="Password" />
+            <Input inputValue="User name" />
+            <Input inputValue="Password" />
             <Button
               navigation={navigation}
               page="Navigation"

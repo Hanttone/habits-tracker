@@ -27,7 +27,7 @@ export default function CreateHabit() {
         <Header text="Create Habit" mt="5%" color="#6E473F" />
       </ImageBackground>
       <ContentWrapper>
-        <Input placeholder="Create a new habit" />
+        <Input inputValue="Create a new habit" />
         <Button
           text="Submit daily habits"
           page="New Habit"

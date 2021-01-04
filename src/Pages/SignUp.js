@@ -21,8 +21,8 @@ export default function SignUp({navigation}) {
         <ContentWrapper>
           <Header text="Habits Tracker" mt="20%" color="white" />
           <SigninWrapper>
-            <Input />
-            <Input />
+            <Input inputValue="User name" />
+            <Input inputValue="Password" />
             <Button
               navigation={navigation}
               page="Navigation"

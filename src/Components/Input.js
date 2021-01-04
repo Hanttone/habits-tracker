@@ -3,10 +3,14 @@ import styled from 'styled-components/native';
 import {useState} from 'react';
 
 export default function Input(inputValue) {
-  const [input, onInputChange] = useState('');
+  const [input, onInputChange] = useState();
 
   return (
-    <LoginInput value={input} onInputChange={(text) => onInputChange(text)} />
+    <LoginInput
+      value={input}
+      placeholder="${inputValue}"
+      onChangeText={(text) => onInputChange(text)}
+    />
   );
 }
 
