@@ -1,5 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import HabitsPage from '../Pages/Habits';
 import CreateHabit from '../Pages/CreateHabit';
@@ -14,10 +15,32 @@ export default function NavigationTabs() {
       initialRouterName="Home"
       tabBarOptions={{
         activeTintColor: '#fff',
-        inActiveTintColor: '#CBAAA9',
-        style: {backgroundColor: '#aa7a78'},
-        labelStyle: {fontSize: 13},
-      }}>
+        inactiveTintColor: '#CBAAA9',
+        style: {
+          backgroundColor: '#aa7a78',
+          height: '8%',
+          paddingBottom: '2%',
+          borderTopColor: 'transparent',
+        },
+        labelStyle: {fontSize: 15},
+      }}
+      screenOptions={({route}) => ({
+        tabBarIcon: ({focused, color}) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = focused ? 'home' : 'home';
+          } else if (route.name === 'Statistics') {
+            iconName = focused ? 'barschart' : 'barschart';
+          } else if (route.name === 'New Habit') {
+            iconName = focused ? 'checksquareo' : 'checksquareo';
+          } else {
+            iconName = focused ? 'setting' : 'setting';
+          }
+
+          return <Icon name={iconName} color={color} size={45} />;
+        },
+      })}>
       <Tab.Screen name="Home" component={HabitsPage} />
       <Tab.Screen name="Statistics" component={Statistics} />
       <Tab.Screen name="New Habit" component={CreateHabit} />

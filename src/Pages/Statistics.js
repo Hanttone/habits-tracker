@@ -44,7 +44,7 @@ const Filter = styled.View`
 `;
 
 const ContentWrapper = styled.View`
-  height: 83.8%;
+  height: 83%;
   width: 100%;
   background-color: white;
   border-bottom-left-radius: 35px;
