@@ -15,14 +15,13 @@ export default function Input() {
 }
 
 const LoginInput = styled.TextInput`
-  height: 43px;
-  width: 324px;
+  height: 9%;
+  width: 360px;
   border-radius: 18px;
   background-color: white;
-  margin-bottom: 5%;
+  margin-bottom: 8%;
   text-align: center;
   font-size: 25px;
   font-family: Helvetica;
   elevation: 5;
-  margin: 5%;
 `;
