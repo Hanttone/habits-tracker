@@ -1,14 +1,25 @@
-import React from 'react';
-import {ImageBackground, Dimensions} from 'react-native';
+import React, {useState} from 'react';
+import {
+  ImageBackground,
+  Dimensions,
+  KeyboardAvoidingView,
+  View,
+} from 'react-native';
 import styled from 'styled-components/native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import Header from '../Components/Header';
 import Button from '../Components/Button';
-import Input from '../Components/Input';
 
 export default function CreateHabit() {
+  const [input, onInputChange] = useState();
+  const [habits, setHabits] = useState([]);
+
+  function createNewHabit() {
+    setHabits([...habits, input]);
+  }
+
   let screenWidth = Dimensions.get('window').width;
-  console.log(screenWidth);
   return (
     <HabitsWrapper>
       <ImageBackground
@@ -26,15 +37,35 @@ export default function CreateHabit() {
         <Filter />
         <Header text="Create Habit" mt="5%" color="#6E473F" />
       </ImageBackground>
-      <ContentWrapper>
-        <Input inputValue="Create a new habit" />
-        <Button
-          text="Submit daily habits"
-          page="New Habit"
-          margin="0%"
-          width="325px"
-        />
-      </ContentWrapper>
+      <KeyboardAvoidingView behavior="height" style={{flex: 1}}>
+        <ContentWrapper>
+          {habits.map((habit) => (
+            <HabitWrapper>
+              <Habit>{habit}</Habit>
+              <Icon
+                name="form"
+                color="black"
+                size={40}
+                style={{marginRight: '5%'}}
+              />
+              <Icon name="delete" color="black" size={40} />
+            </HabitWrapper>
+          ))}
+          <LoginInput
+            value={input}
+            placeholder="Add new habit"
+            onChangeText={(text) => onInputChange(text)}
+            onSubmitEditing={createNewHabit}
+          />
+          <Button
+            text="Submit daily habits"
+            page="New Habit"
+            margin="0%"
+            width="380px"
+          />
+          <View style={{flex: 1}} />
+        </ContentWrapper>
+      </KeyboardAvoidingView>
     </HabitsWrapper>
   );
 }
@@ -54,14 +85,49 @@ const Filter = styled.View`
 `;
 
 const ContentWrapper = styled.View`
-  height: 83%;
   width: 100%;
+  position: relative;
 
   display: flex;
+  flex: 8;
   align-items: center;
+  justify-content: flex-end;
 
   background-color: white;
   border-bottom-left-radius: 35px;
   border-bottom-right-radius: 35px;
   elevation: 5;
+  overflow: hidden;
+`;
+
+const HabitWrapper = styled.View`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 5%;
+  margin-bottom: 2%;
+`;
+
+const Habit = styled.Text`
+  font-size: 25px;
+  font-family: Helvetica;
+  width: 50%;
+`;
+
+const LoginInput = styled.TextInput`
+  height: 7%;
+  width: 90%;
+  position: absolute;
+  bottom: 10%;
+
+  border-radius: 18px;
+  background-color: white;
+  margin-bottom: 5%;
+  text-align: center;
+  font-size: 25px;
+  font-family: Helvetica;
+  elevation: 5;
+  margin: 5%;
 `;

@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {useState} from 'react';
 
-export default function Input(inputValue) {
+export default function Input() {
   const [input, onInputChange] = useState();
 
   return (
     <LoginInput
       value={input}
-      placeholder="${inputValue}"
+      placeholder="Sign in"
       onChangeText={(text) => onInputChange(text)}
     />
   );
