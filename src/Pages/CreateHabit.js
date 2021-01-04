@@ -3,7 +3,8 @@ import {
   ImageBackground,
   Dimensions,
   KeyboardAvoidingView,
-  View,
+  ScrollView,
+  Pressable,
 } from 'react-native';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -17,6 +18,14 @@ export default function CreateHabit() {
 
   function createNewHabit() {
     setHabits([...habits, input]);
+  }
+
+  function removeHabit(index) {
+    if (index === 0) {
+      setHabits(habits.slice(1));
+    } else {
+      setHabits([...habits.slice(0, index), ...habits.slice(index + 1)]);
+    }
   }
 
   let screenWidth = Dimensions.get('window').width;
@@ -37,35 +46,44 @@ export default function CreateHabit() {
         <Filter />
         <Header text="Create Habit" mt="5%" color="#6E473F" />
       </ImageBackground>
-      <KeyboardAvoidingView behavior="height" style={{flex: 1}}>
-        <ContentWrapper>
-          {habits.map((habit) => (
-            <HabitWrapper>
-              <Habit>{habit}</Habit>
-              <Icon
-                name="form"
-                color="black"
-                size={40}
-                style={{marginRight: '5%'}}
-              />
-              <Icon name="delete" color="black" size={40} />
-            </HabitWrapper>
-          ))}
-          <LoginInput
-            value={input}
-            placeholder="Add new habit"
-            onChangeText={(text) => onInputChange(text)}
-            onSubmitEditing={createNewHabit}
-          />
-          <Button
-            text="Submit daily habits"
-            page="New Habit"
-            margin="0%"
-            width="380px"
-          />
-          <View style={{flex: 1}} />
-        </ContentWrapper>
-      </KeyboardAvoidingView>
+      <ContentWrapper>
+        <ScrollView style={{flex: 1}}>
+          <KeyboardAvoidingView
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              flex: 1,
+              position: 'relative',
+            }}>
+            {habits.map((habit, index) => (
+              <HabitWrapper key={index}>
+                <Habit>{habit}</Habit>
+                <Icon
+                  name="form"
+                  color="black"
+                  size={40}
+                  style={{marginRight: '5%'}}
+                />
+                <Pressable onPress={() => removeHabit(index)}>
+                  <Icon name="delete" color="black" size={40} />
+                </Pressable>
+              </HabitWrapper>
+            ))}
+            <LoginInput
+              value={input}
+              placeholder="Add new habit"
+              onChangeText={(text) => onInputChange(text)}
+              onSubmitEditing={createNewHabit}
+            />
+            <Button
+              text="Submit daily habits"
+              page="New Habit"
+              margin="0%"
+              width="340px"
+            />
+          </KeyboardAvoidingView>
+        </ScrollView>
+      </ContentWrapper>
     </HabitsWrapper>
   );
 }
@@ -86,18 +104,16 @@ const Filter = styled.View`
 
 const ContentWrapper = styled.View`
   width: 100%;
+  height: 83%;
   position: relative;
 
   display: flex;
-  flex: 8;
   align-items: center;
-  justify-content: flex-end;
 
   background-color: white;
   border-bottom-left-radius: 35px;
   border-bottom-right-radius: 35px;
   elevation: 5;
-  overflow: hidden;
 `;
 
 const HabitWrapper = styled.View`
@@ -117,17 +133,15 @@ const Habit = styled.Text`
 `;
 
 const LoginInput = styled.TextInput`
-  height: 7%;
+  height: 45px;
   width: 90%;
-  position: absolute;
-  bottom: 10%;
 
   border-radius: 18px;
-  background-color: white;
+  margin-top: 5%;
   margin-bottom: 5%;
+  background-color: white;
   text-align: center;
   font-size: 25px;
   font-family: Helvetica;
   elevation: 5;
-  margin: 5%;
 `;

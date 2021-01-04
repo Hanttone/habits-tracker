@@ -36,10 +36,9 @@ const ButtonStyled = styled.Text`
   font-family: Helvetica;
   font-weight: 700;
   border-radius: 18px;
-  height: 43px;
+  height: 48px;
   text-align: center;
-  padding: 0.7%;
+  padding: 0.8%;
   margin-bottom: ${(props) => props.margin};
-
   elevation: 12;
 `;
