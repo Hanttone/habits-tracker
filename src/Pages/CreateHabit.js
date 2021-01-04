@@ -3,6 +3,8 @@ import {ImageBackground, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 
 import Header from '../Components/Header';
+import Button from '../Components/Button';
+import Input from '../Components/Input';
 
 export default function CreateHabit() {
   let screenWidth = Dimensions.get('window').width;
@@ -24,7 +26,15 @@ export default function CreateHabit() {
         <Filter />
         <Header text="Create Habit" mt="5%" color="#6E473F" />
       </ImageBackground>
-      <ContentWrapper></ContentWrapper>
+      <ContentWrapper>
+        <Input placeholder="Create a new habit" />
+        <Button
+          text="Submit daily habits"
+          page="New Habit"
+          margin="0%"
+          width="325px"
+        />
+      </ContentWrapper>
     </HabitsWrapper>
   );
 }
@@ -46,6 +56,10 @@ const Filter = styled.View`
 const ContentWrapper = styled.View`
   height: 83%;
   width: 100%;
+
+  display: flex;
+  align-items: center;
+
   background-color: white;
   border-bottom-left-radius: 35px;
   border-bottom-right-radius: 35px;

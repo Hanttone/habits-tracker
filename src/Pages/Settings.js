@@ -3,6 +3,7 @@ import {ImageBackground, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 
 import Header from '../Components/Header';
+import Button from '../Components/Button';
 
 export default function HabitsPage() {
   let screenWidth = Dimensions.get('window').width;
@@ -24,7 +25,9 @@ export default function HabitsPage() {
         <Filter />
         <Header text="Settings" mt="5%" color="#6E473F" />
       </ImageBackground>
-      <ContentWrapper></ContentWrapper>
+      <ContentWrapper>
+        <Button text="Logout" page="Home" margin="0%" />
+      </ContentWrapper>
     </HabitsWrapper>
   );
 }
@@ -46,6 +49,9 @@ const Filter = styled.View`
 const ContentWrapper = styled.View`
   height: 83%;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   border-bottom-left-radius: 35px;
   border-bottom-right-radius: 35px;

@@ -17,14 +17,7 @@ const HeaderStyled = styled.Text`
   text-align: center;
   margin-top: ${(props) => props.mt};
   z-index: 100;
-
-  shadow-color: #000;
-shadow-offset: {
-	width: 0;
-	height: 2;
-};
-shadow-opacity: 0.23;
-shadow-radius: 2.62px;
-
-elevation: 4;
+  shadow-color: black;
+  shadow-radius: 10px;
+  elevation: 4;
 `;

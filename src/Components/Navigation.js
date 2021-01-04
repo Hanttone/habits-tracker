@@ -28,7 +28,7 @@ export default function NavigationTabs() {
         tabBarIcon: ({focused, color}) => {
           let iconName;
 
-          if (route.name === 'Home') {
+          if (route.name === 'Start') {
             iconName = focused ? 'home' : 'home';
           } else if (route.name === 'Statistics') {
             iconName = focused ? 'barschart' : 'barschart';
@@ -41,7 +41,7 @@ export default function NavigationTabs() {
           return <Icon name={iconName} color={color} size={45} />;
         },
       })}>
-      <Tab.Screen name="Home" component={HabitsPage} />
+      <Tab.Screen name="Start" component={HabitsPage} />
       <Tab.Screen name="Statistics" component={Statistics} />
       <Tab.Screen name="New Habit" component={CreateHabit} />
       <Tab.Screen name="Settings" component={Settings} />

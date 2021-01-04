@@ -19,4 +19,6 @@ const LoginInput = styled.TextInput`
   text-align: center;
   font-size: 25px;
   font-family: Helvetica;
+  elevation: 5;
+  margin: 5%;
 `;

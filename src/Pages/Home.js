@@ -23,7 +23,7 @@ export default function HomePage({navigation}) {
             navigation={navigation}
             page="LogIn"
             text="Start"
-            margin="30%"
+            margin="20%"
           />
         </ContentWrapper>
       </ImageBackground>
