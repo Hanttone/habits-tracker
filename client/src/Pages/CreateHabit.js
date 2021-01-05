@@ -14,10 +14,26 @@ import Button from '../Components/Button';
 
 export default function CreateHabit() {
   const [input, onInputChange] = useState();
+  const [habitEdit, setHabitEdit] = useState();
+  const [isEditable, setIsEditable] = useState(false);
   const [habits, setHabits] = useState([]);
 
-  function createNewHabit() {
-    setHabits([...habits, input]);
+  function createNewHabit(index) {
+    if (isEditable === true) {
+      habits.splice(index, 1, habitEdit);
+      setIsEditable(false);
+    }
+    if (input === undefined) {
+      return habits;
+    } else {
+      setHabits([...habits, input]);
+      onInputChange();
+    }
+  }
+
+  function editHabit(index) {
+    setHabitEdit(habits[index]);
+    setIsEditable(true);
   }
 
   function removeHabit(index) {
@@ -57,13 +73,23 @@ export default function CreateHabit() {
             }}>
             {habits.map((habit, index) => (
               <HabitWrapper key={index}>
-                <Habit>{habit}</Habit>
-                <Icon
-                  name="form"
-                  color="black"
-                  size={40}
-                  style={{marginRight: '5%'}}
-                />
+                {isEditable ? (
+                  <EditHabit
+                    value={habitEdit}
+                    onChangeText={(text) => setHabitEdit(text)}
+                    onSubmitEditing={() => createNewHabit(index)}
+                  />
+                ) : (
+                  <Habit>{habit}</Habit>
+                )}
+                <Pressable onPress={() => editHabit(index)}>
+                  <Icon
+                    name="form"
+                    color="black"
+                    size={40}
+                    style={{marginRight: '5%'}}
+                  />
+                </Pressable>
                 <Pressable onPress={() => removeHabit(index)}>
                   <Icon name="delete" color="black" size={40} />
                 </Pressable>
@@ -130,6 +156,12 @@ const Habit = styled.Text`
   font-size: 25px;
   font-family: Helvetica;
   width: 50%;
+`;
+
+const EditHabit = styled.TextInput`
+  height: 50px;
+  width: 50%;
+  font-size: 25px;
 `;
 
 const LoginInput = styled.TextInput`
