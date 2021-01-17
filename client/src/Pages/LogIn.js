@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Dimensions,
   SafeAreaView,
@@ -10,11 +10,11 @@ import styled from 'styled-components';
 
 import Header from '../Components/Header';
 import Button from '../Components/Button';
-import Input from '../Components/Input';
 
 export default function LogIn({navigation}) {
   let screenWidth = Dimensions.get('window').width;
   let screenHeight = Dimensions.get('window').height;
+  const [input, onInputChange] = useState();
 
   return (
     <ScrollView style={{flex: 1}}>
@@ -29,8 +29,16 @@ export default function LogIn({navigation}) {
             <ContentWrapper>
               <Header text="Habits Tracker" mt="20%" color="white" />
               <LoginWrapper>
-                <Input inputValue="User name" />
-                <Input inputValue="Password" />
+                <LoginInput
+                  value={input}
+                  placeholder="Sign in"
+                  onChangeText={(text) => onInputChange(text)}
+                />
+                <LoginInput
+                  value={input}
+                  placeholder="Password"
+                  onChangeText={(text) => onInputChange(text)}
+                />
                 <Button
                   navigation={navigation}
                   page="Navigation"
@@ -63,4 +71,16 @@ const LoginWrapper = styled.View`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+`;
+
+const LoginInput = styled.TextInput`
+  height: 9%;
+  width: 360px;
+  border-radius: 18px;
+  background-color: white;
+  margin-bottom: 8%;
+  text-align: center;
+  font-size: 20px;
+  font-family: Helvetica;
+  elevation: 5;
 `;

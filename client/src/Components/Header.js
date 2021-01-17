@@ -17,7 +17,5 @@ const HeaderStyled = styled.Text`
   text-align: center;
   margin-top: ${(props) => props.mt};
   z-index: 100;
-  shadow-color: black;
-  shadow-radius: 10px;
   elevation: 4;
 `;
