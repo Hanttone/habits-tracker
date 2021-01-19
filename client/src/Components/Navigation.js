@@ -18,11 +18,11 @@ export default function NavigationTabs() {
         inactiveTintColor: '#CBAAA9',
         style: {
           backgroundColor: '#aa7a78',
-          height: '8%',
-          paddingBottom: '2%',
+          height: '10%',
+          paddingBottom: '1%',
           borderTopColor: 'transparent',
         },
-        labelStyle: {fontSize: 15},
+        labelStyle: {fontSize: 12},
       }}
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color}) => {

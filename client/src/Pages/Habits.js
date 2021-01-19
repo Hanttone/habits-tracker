@@ -44,10 +44,8 @@ const Filter = styled.View`
 `;
 
 const ContentWrapper = styled.View`
-  height: 83%;
+  height: 100%;
   width: 100%;
   background-color: white;
-  border-bottom-left-radius: 35px;
-  border-bottom-right-radius: 35px;
-  elevation: 5;
+  elevation: 3;
 `;

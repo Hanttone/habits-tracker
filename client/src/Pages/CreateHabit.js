@@ -130,15 +130,13 @@ const Filter = styled.View`
 
 const ContentWrapper = styled.View`
   width: 100%;
-  height: 83%;
+  height: 80%;
   position: relative;
 
   display: flex;
   align-items: center;
 
   background-color: white;
-  border-bottom-left-radius: 35px;
-  border-bottom-right-radius: 35px;
   elevation: 5;
 `;
 
